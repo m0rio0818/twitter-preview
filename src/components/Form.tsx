@@ -1,12 +1,14 @@
 import Btn from "./Btn";
 import InputComponent from "./InputComponent";
 import TextArea from "./TextArea";
+import ShowTweet from "./ShowTweet";
 import { useState } from "react";
 
 type tweetType = {
     name: string;
     id: string;
     detail: string;
+    time: Date;
 };
 
 const Form = () => {
@@ -16,24 +18,24 @@ const Form = () => {
     const [tweetList, setTweetTimeline] = useState<tweetType[]>([]);
 
     const setTweet = () => {
-        console.log(
-            "これからツイートをセットします",
-            userName,
-            userId,
-            tweetDetail
-        );
         if (userName == "" || userId == "" || tweetDetail == "") {
-            window.alert("tweetが全て入力できてません")
+            window.alert("tweetが全て入力できてません");
         } else {
             const tweets = {
                 name: userName,
                 id: userId,
                 detail: tweetDetail,
+                time: new Date(),
             };
 
+            setUserName("");
+            setUserId("");
+            setTweetDetail("");
             setTweetTimeline([...tweetList, tweets]);
         }
     };
+
+    console.log(tweetList);
 
     return (
         <div>
@@ -46,6 +48,9 @@ const Form = () => {
             </div>
             <div className="flex justify-center py-3">
                 <Btn onClick={setTweet} />
+            </div>
+            <div>
+                <ShowTweet tweetLists={tweetList} />
             </div>
         </div>
     );

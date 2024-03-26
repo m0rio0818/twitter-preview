@@ -1,21 +1,9 @@
-type tweetType = {
-    name: string;
-    id: string;
-    detail: string;
-};
-
 type propsType = {
     // setTweet: (value: string) => void;
     onClick: () => void;
 };
 
 const Btn: React.FC<propsType> = ({ onClick }) => {
-    // const createTweet = (
-    //     // e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-    // ) => {
-    //     setTweet();
-    // };
-
     return (
         <>
             <button
