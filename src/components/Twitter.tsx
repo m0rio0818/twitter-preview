@@ -2,9 +2,9 @@ import Form from "./Form";
 
 const Twitter = () => {
     return (
-        <div>
-            <p className="text-center">Twitter</p>
-            <div className="p-5">
+        <div className="p-5">
+            <p className="text-center text-2xl">Twitter</p>
+            <div className="px-10 py-3">
                 <Form />
             </div>
         </div>
